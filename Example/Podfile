@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SDRemoteImageView_Example' do
+  pod 'SDRemoteImageView', :path => '../'
+
+  target 'SDRemoteImageView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

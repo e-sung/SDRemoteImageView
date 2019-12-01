@@ -1,0 +1,6 @@
+framework module SDRemoteImageView {
+  umbrella header "SDRemoteImageView-umbrella.h"
+
+  export *
+  module * { export * }
+}

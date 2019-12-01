@@ -1,0 +1,22 @@
+{
+  "name": "SDRemoteImageView",
+  "version": "0.1.0",
+  "summary": "A short description of SDRemoteImageView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/e-sung/SDRemoteImageView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "e-sung": "dev.esung@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/e-sung/SDRemoteImageView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "SDRemoteImageView/Classes/**/*"
+}

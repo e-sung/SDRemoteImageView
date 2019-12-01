@@ -1,0 +1,16 @@
+PODS:
+  - SDRemoteImageView (0.1.0)
+
+DEPENDENCIES:
+  - SDRemoteImageView (from `../`)
+
+EXTERNAL SOURCES:
+  SDRemoteImageView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SDRemoteImageView: ea64d31f6306243c3b4bc6848703d98ef15bd0a4
+
+PODFILE CHECKSUM: a1bc78f804304a8af7e6ac3870d1fee5a31d4e03
+
+COCOAPODS: 1.8.4

@@ -31,7 +31,7 @@ class ViewController: UIViewController {
                                     switch result {
                                     case let .success(image):
                                         guard let image = image else { return }
-                                        self?.labelMemorySize.text = "\(image.memorySizeInKB) KB"
+                                        self?.labelMemorySize.text = "\(image.memorySize) bytes"
                                     case .failure:
                                         self?.labelMemorySize.text = "Error!!"
                                     }
@@ -40,8 +40,8 @@ class ViewController: UIViewController {
 }
 
 extension UIImage {
-    var memorySizeInKB: Int {
+    var memorySize: Int {
         guard let cgImage = self.cgImage else { return 0 }
-        return (cgImage.height * cgImage.bytesPerRow) / 1024
+        return (cgImage.height * cgImage.bytesPerRow)
     }
 }

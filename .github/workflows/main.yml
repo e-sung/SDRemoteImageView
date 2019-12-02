@@ -1,0 +1,14 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: macOS-latest
+    steps:
+     - name: Checkout
+       uses: actions/checkout@v1
+     - name: CocoaPod Install
+       run: pod install --project-directory=Example
+     - name: Run a multi-line script
+       run: xcodebuild -workspace ./Example/SDRemoteImageView.xcworkspace -scheme SDRemoteImageView-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8' -enableCodeCoverage YES test

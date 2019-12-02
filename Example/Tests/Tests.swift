@@ -3,26 +3,51 @@ import SDRemoteImageView
 
 class Tests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
+    func test1DownSampling() {
+        let networkFetchCondition = XCTestExpectation(description: "Network Fetch")
         // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+        let imageURL = URL(string: "https://raw.githubusercontent.com/e-sung/SDRemoteImageView/master/sampleImage.jpg")
+        let givenFrame = CGRect(x: 0, y: 0, width: 200, height: 150)
+        let resoution = UIScreen.main.scale
+        let sut = SDRemoteImageView(frame: givenFrame)
+        sut.loadImage(from: imageURL, completionHandler: { result in
+            do {
+                let image = try result.get()
+                let bytesPerRow = image?.cgImage?.bytesPerRow ?? 0
+                let imageHeight = image?.cgImage?.height ?? 0
+                let imageSize = bytesPerRow * imageHeight
+                
+                
+                XCTAssert(imageSize == Int(givenFrame.width * resoution * givenFrame.height * resoution * 4))
+            }
+            catch {
+                XCTFail()
+            }
+            networkFetchCondition.fulfill()
+        })
+        wait(for: [networkFetchCondition], timeout: 10)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure() {
-            // Put the code you want to measure the time of here.
-        }
+    func test2NoDownSampling() {
+        let networkFetchCondition = XCTestExpectation(description: "Network Fetch")
+        // size of contents of image is 1920 * 1440
+        let imageURL = URL(string: "https://raw.githubusercontent.com/e-sung/SDRemoteImageView/master/sampleImage.jpg")
+        let givenFrame = CGRect(x: 0, y: 0, width: 200, height: 150)
+        let sut = SDRemoteImageView(frame: givenFrame)
+        sut.loadImage(from: imageURL, shouldDownSample: false, completionHandler: { result in
+            do {
+                let image = try result.get()
+                let bytesPerRow = image?.cgImage?.bytesPerRow ?? 0
+                let imageHeight = image?.cgImage?.height ?? 0
+                let imageSize = bytesPerRow * imageHeight
+                XCTAssert(imageSize == 1920 * 1440 * 4)
+            }
+            catch {
+                XCTFail()
+            }
+            networkFetchCondition.fulfill()
+        })
+        wait(for: [networkFetchCondition], timeout: 10)
     }
-    
+
 }

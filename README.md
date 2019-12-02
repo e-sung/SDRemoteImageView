@@ -1,5 +1,6 @@
 # SDRemoteImageView
 
+![Build Status](https://github.com/e-sung/SDRemoteImageView/workflows/Build/badge.svg)
 
 ## Introduction
 

@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="0E8-90-7zh">
             <objects>
-                <viewController id="k7x-X9-aTZ" customClass="ViewController" customModule="RemoteImageView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="k7x-X9-aTZ" customClass="ViewController" customModule="SDRemoteImageView_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rGj-JG-2Ut"/>
                         <viewControllerLayoutGuide type="bottom" id="QK0-Kl-WcE"/>
@@ -30,31 +30,41 @@
                                 </connections>
                             </segmentedControl>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WdA-Zs-WGK" customClass="SDRemoteImageView" customModule="SDRemoteImageView">
-                                <rect key="frame" x="0.0" y="45" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="193" width="375" height="281"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WdA-Zs-WGK" secondAttribute="height" multiplier="1920:1440" id="nUM-1T-oIN"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1N-2b-1rz">
-                                <rect key="frame" x="0.0" y="632" width="359" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1N-2b-1rz">
+                                <rect key="frame" x="0.0" y="65" width="359" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8j9-nv-yEs">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="A1N-2b-1rz" firstAttribute="top" secondItem="lYj-o1-Fff" secondAttribute="bottom" constant="20" id="ABs-KH-0oo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="A1N-2b-1rz" secondAttribute="trailing" id="ErY-Ea-zB2"/>
                             <constraint firstItem="A1N-2b-1rz" firstAttribute="leading" secondItem="fBu-yX-NeU" secondAttribute="leading" id="ITh-El-jk6"/>
                             <constraint firstItem="lYj-o1-Fff" firstAttribute="top" secondItem="rGj-JG-2Ut" secondAttribute="bottom" constant="14" id="JAe-eO-wWd"/>
-                            <constraint firstItem="QK0-Kl-WcE" firstAttribute="top" secondItem="A1N-2b-1rz" secondAttribute="bottom" constant="14" id="K0E-Vd-U15"/>
                             <constraint firstItem="WdA-Zs-WGK" firstAttribute="leading" secondItem="fBu-yX-NeU" secondAttribute="leading" id="ZP4-iu-S98"/>
-                            <constraint firstItem="WdA-Zs-WGK" firstAttribute="top" secondItem="lYj-o1-Fff" secondAttribute="bottom" id="bgi-M7-Pxr"/>
                             <constraint firstItem="lYj-o1-Fff" firstAttribute="leading" secondItem="fBu-yX-NeU" secondAttribute="leadingMargin" constant="14" id="cP2-mQ-Js3"/>
+                            <constraint firstItem="8j9-nv-yEs" firstAttribute="centerY" secondItem="fBu-yX-NeU" secondAttribute="centerY" id="eCP-wH-zmV"/>
+                            <constraint firstItem="WdA-Zs-WGK" firstAttribute="centerX" secondItem="fBu-yX-NeU" secondAttribute="centerX" id="f7n-fT-BFi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lYj-o1-Fff" secondAttribute="trailing" constant="14" id="fMf-65-G5P"/>
-                            <constraint firstItem="A1N-2b-1rz" firstAttribute="top" secondItem="WdA-Zs-WGK" secondAttribute="bottom" id="qUS-L2-3fm"/>
+                            <constraint firstItem="WdA-Zs-WGK" firstAttribute="centerY" secondItem="fBu-yX-NeU" secondAttribute="centerY" id="loW-Ky-9Po"/>
+                            <constraint firstItem="WdA-Zs-WGK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="A1N-2b-1rz" secondAttribute="bottom" priority="750" constant="14" id="mfy-ba-Ls1"/>
+                            <constraint firstItem="8j9-nv-yEs" firstAttribute="centerX" secondItem="fBu-yX-NeU" secondAttribute="centerX" id="uYt-fW-nhR"/>
                             <constraint firstAttribute="trailing" secondItem="WdA-Zs-WGK" secondAttribute="trailing" id="vkC-Vz-S6Q"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="labelMemorySize" destination="A1N-2b-1rz" id="qw2-ry-Wdg"/>
+                        <outlet property="loadingIndicator" destination="8j9-nv-yEs" id="7eT-j5-8rF"/>
                         <outlet property="remoteImageView" destination="WdA-Zs-WGK" id="d9q-0m-FvB"/>
                         <outlet property="segmentControl" destination="lYj-o1-Fff" id="iXr-R0-Akb"/>
                     </connections>

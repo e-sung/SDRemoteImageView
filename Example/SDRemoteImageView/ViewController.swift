@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet var remoteImageView: SDRemoteImageView!
     @IBOutlet var segmentControl: UISegmentedControl!
     @IBOutlet var labelMemorySize: UILabel!
-    let imageURL = URL(string: "https://media.idownloadblog.com/wp-content/uploads/2019/09/iPhone-11-Pro-stock-wallpaper-via-AR72014-blue.png")!
+    @IBOutlet var loadingIndicator: UIActivityIndicatorView!
+    let imageURL = URL(string: "https://raw.githubusercontent.com/e-sung/SDRemoteImageView/master/sampleImage.jpg")!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,12 +24,14 @@ class ViewController: UIViewController {
 
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         let shouldDownsample = sender.selectedSegmentIndex == 0
+        loadingIndicator.startAnimating()
         remoteImageView.loadImage(from: imageURL, shouldDownSample: shouldDownsample,
                                   completionHandler: { [weak self] result in
+                                    self?.loadingIndicator.stopAnimating()
                                     switch result {
                                     case let .success(image):
                                         guard let image = image else { return }
-                                        self?.labelMemorySize.text = "\(image.memorySize) bytes"
+                                        self?.labelMemorySize.text = "\(image.memorySizeInKB) KB"
                                     case .failure:
                                         self?.labelMemorySize.text = "Error!!"
                                     }
@@ -37,8 +40,8 @@ class ViewController: UIViewController {
 }
 
 extension UIImage {
-    var memorySize: Int {
+    var memorySizeInKB: Int {
         guard let cgImage = self.cgImage else { return 0 }
-        return cgImage.height * cgImage.bytesPerRow
+        return (cgImage.height * cgImage.bytesPerRow) / 1024
     }
 }

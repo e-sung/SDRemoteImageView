@@ -1,5 +1,14 @@
 # SDRemoteImageView
 
+
+## Introduction
+
+Images are biggest factor for memory footprint. To make minimal footprint while dealing with images, you should use technique called `downsampling` when possible.
+
+This subclass of UIImageView fetches image data from remote server, and apply `downsampling` on that data, and then display it, resulting in minimal memory footprint.
+
+If you run the sample project, you can find that downsampled version of image takes much less memory when decoded into image buffer.
+
 ## Demo
 
 ![SDRemoteImageView Demo](demo.gif)
@@ -9,6 +18,8 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+This project has zero depdencies other than Foundation and UIKit
 
 ## Installation
 

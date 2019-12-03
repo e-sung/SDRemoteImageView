@@ -30,7 +30,7 @@ public class SDRemoteImageView: UIImageView {
         
         let pointSize = frame.size
         let scale = UIScreen.main.scale
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             let cachedData = URLCache.shared.cachedResponse(for: URLRequest(url: url))?.data
             if let data = cachedData {
                 let image = shouldDownSample ? self?.downsample(imageData: data, for: pointSize, scale: scale) : UIImage(data: data)
@@ -64,12 +64,12 @@ public class SDRemoteImageView: UIImageView {
                 completionHandler(.failure(error ?? RemoteImageViewError.invalidResponse))
                 return
             }
+            let image:UIImage? = shouldDownSample ? self?.downsample(imageData: data, for: size, scale: scale) : UIImage(data: data)
+            if shouldCache {
+                let cachedResponse = CachedURLResponse(response: response, data: data)
+                URLCache.shared.storeCachedResponse(cachedResponse, for: URLRequest(url: url))
+            }
             DispatchQueue.main.async {
-                let image:UIImage? = shouldDownSample ? self?.downsample(imageData: data, for: size, scale: scale) : UIImage(data: data)
-                if shouldCache {
-                    let cachedResponse = CachedURLResponse(response: response, data: data)
-                    URLCache.shared.storeCachedResponse(cachedResponse, for: URLRequest(url: url))
-                }
                 self?.applyImage(image, completionHandler: completionHandler )
             }
         })

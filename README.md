@@ -4,11 +4,9 @@
 
 ## Introduction
 
-Images are biggest factor for memory footprint. To make minimal footprint while dealing with images, you should use technique called `downsampling` when possible.
+Images are biggest factor for memory footprint. To make minimal footprint while dealing with images, you should use technique called `downsampling` when possible. This project shows you a way to apply the technique.
 
-This subclass of UIImageView fetches image data from remote server, and apply `downsampling` on that data, and then display it, resulting in minimal memory footprint.
-
-If you run the sample project, you can find that downsampled version of image takes much less memory when decoded into image buffer.
+To understand concept behind the `downsampling` more deeply, please checkout WWDC talk [Images and Graphics Best Practices](https://developer.apple.com/videos/play/wwdc2018/219/) . It's one of the must-see session for all iOS developers. ​​
 
 ## Demo
 
@@ -33,7 +31,7 @@ pod 'SDRemoteImageView'
 
 ## Author
 
-e-sung, dev.esung@gmail.com
+e-sung, dev.esung@gmail.com, https://twitter.com/sungdooyoo
 
 ## License
 

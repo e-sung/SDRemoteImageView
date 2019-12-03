@@ -35,3 +35,11 @@ Carthage/Build
 # `pod install` in .travis.yml
 #
 # Pods/
+#
+
+# Swift PackageManager
+Packages
+.build/
+xcuserdata
+DerivedData/
+*.xcodeproj

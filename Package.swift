@@ -16,5 +16,5 @@ let package = Package(
             name: "SDRemoteImageViewTests",
             dependencies: ["SDRemoteImageView"],
             path: "Example/Tests")
-    ],
+    ]
 )

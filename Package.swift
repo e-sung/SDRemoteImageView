@@ -14,5 +14,6 @@ let package = Package(
             name: "SDRemoteImageViewTests",
             dependencies: ["SDRemoteImageView"],
             path: "Example/Tests")
-    ]
+    ],
+	swiftLanguageVersions: [.v5]
 )

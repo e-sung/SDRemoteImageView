@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SDRemoteImageView'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of SDRemoteImageView.'
+  s.version          = '0.2.1'
+  s.summary          = 'Fetch image from Remote server, downsample it, and display it'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,26 +17,19 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'UIImageView subclass that fetches image from Remote server, downsample it, and display it'
 
   s.homepage         = 'https://github.com/e-sung/SDRemoteImageView'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots     = 'https://github.com/e-sung/SDRemoteImageView/blob/master/demo.gif?raw=true'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'e-sung' => 'dev.esung@gmail.com' }
   s.source           = { :git => 'https://github.com/e-sung/SDRemoteImageView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/sungdooyoo'
 
   s.ios.deployment_target = '8.0'
 
+  s.swift_versions = ['5.0', '5.1']
   s.source_files = 'SDRemoteImageView/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'SDRemoteImageView' => ['SDRemoteImageView/Assets/*.png']
-  # }
-
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
 end

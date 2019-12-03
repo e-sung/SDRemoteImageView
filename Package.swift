@@ -1,3 +1,5 @@
+// swift-tools-version:5.1
+
 import PackageDescription
 
 let package = Package(
@@ -15,5 +17,4 @@ let package = Package(
             dependencies: ["SDRemoteImageView"],
             path: "Example/Tests")
     ],
-	swiftLanguageVersions: [.v5]
 )

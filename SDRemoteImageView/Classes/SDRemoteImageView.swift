@@ -8,7 +8,7 @@ public class SDRemoteImageView: UIImageView {
     /// optional placeholder image to show while downloading image
     public static var defaultPlaceHolderImage: UIImage?
     /// DispatchQueue where Decoding should happen.
-    public static let decodingQueue = DispatchQueue(label: "SDRemoteImageView Decoding Queue", qos: .userInteractive)
+    private static let decodingQueue = DispatchQueue(label: "SDRemoteImageView Decoding Queue", qos: .userInteractive)
     
     private var dataTaskDownloadImage: URLSessionDataTask?
     

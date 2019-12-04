@@ -11,6 +11,7 @@ public class SDRemoteImageView: UIImageView {
     private static let decodingQueue = DispatchQueue(label: "SDRemoteImageView Decoding Queue", qos: .userInteractive)
     
     private var dataTaskDownloadImage: URLSessionDataTask?
+    private static var imageCache:URLCache!
     
     /**
      Fetch image data from url, downsample the data, and display it.
@@ -21,7 +22,12 @@ public class SDRemoteImageView: UIImageView {
         - completionHandler: callback to notify that downloading has finished. default is nil
     
     */
-    public func loadImage(from url: URL?, placeHolderImage: UIImage? = nil, errorImage: UIImage? = nil, shouldCache:Bool = true, shouldDownSample:Bool = true, completionHandler: @escaping (Result<UIImage?, Error>) -> Void) {
+    public func loadImage(from url: URL?, placeHolderImage: UIImage? = nil, errorImage: UIImage? = nil, shouldCache:Bool = true, shouldDownSample:Bool = true, completionHandler: ((Result<UIImage?, Error>) -> Void)? = nil) {
+        
+        if SDRemoteImageView.imageCache == nil {
+            let memoryCapacity = Int(ProcessInfo.processInfo.physicalMemory / 10)
+            SDRemoteImageView.imageCache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: 1024*1024, diskPath: nil)
+        }
         
         dataTaskDownloadImage?.cancel()
         
@@ -87,7 +93,7 @@ public class SDRemoteImageView: UIImageView {
             let image:UIImage? = shouldDownSample ? self?.downsample(imageData: data, for: size, scale: scale) : UIImage(data: data)
             if shouldCache {
                 let cachedResponse = CachedURLResponse(response: response, data: data)
-                URLCache.shared.storeCachedResponse(cachedResponse, for: URLRequest(url: url))
+                SDRemoteImageView.imageCache.storeCachedResponse(cachedResponse, for: URLRequest(url: url))
             }
             self?.applyImage(image, completionHandler: completionHandler )
         })

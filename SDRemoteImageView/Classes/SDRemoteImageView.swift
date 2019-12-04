@@ -10,8 +10,8 @@ public class SDRemoteImageView: UIImageView {
     /// DispatchQueue where Decoding should happen.
     private static let decodingQueue = DispatchQueue(label: "SDRemoteImageView Decoding Queue", qos: .userInteractive)
     
-    private var dataTaskDownloadImage: URLSessionDataTask?
     private static var imageCache:URLCache!
+    private var decodingCachedImageWorkItem: DispatchWorkItem?
     
     /**
      Fetch image data from url, downsample the data, and display it.
@@ -28,8 +28,6 @@ public class SDRemoteImageView: UIImageView {
             let memoryCapacity = Int(ProcessInfo.processInfo.physicalMemory / 10)
             SDRemoteImageView.imageCache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: 1024*1024, diskPath: nil)
         }
-        
-        dataTaskDownloadImage?.cancel()
         
         guard let url = url else {
             // shows default error image and return failure
@@ -56,16 +54,16 @@ public class SDRemoteImageView: UIImageView {
             else if let defaultPlaceHolderImage = SDRemoteImageView.defaultErrorImage {
                 self.image = defaultPlaceHolderImage
             }
-            self.dataTaskDownloadImage = dataTaskToDownloadImage(for: url,
-                                                                 placeHolderImage: placeHolderImage,
-                                                                 errorImage: errorImage,
-                                                                 transitionTime: transitionTime,
-                                                                 shouldCache: shouldCache,
-                                                                 shouldDownSample: shouldDownSample,
-                                                                 size: pointSize,
-                                                                 scale: scale,
-                                                                 completionHandler: completionHandler)
-            self.dataTaskDownloadImage?.resume()
+            dataTaskToDownloadImage(for: url,
+                                    placeHolderImage: placeHolderImage,
+                                    errorImage: errorImage,
+                                    transitionTime: transitionTime,
+                                    shouldCache: shouldCache,
+                                    shouldDownSample: shouldDownSample,
+                                    size: pointSize,
+                                    scale: scale,
+                                    completionHandler: completionHandler)
+                .resume()
         }
     }
     
@@ -73,11 +71,13 @@ public class SDRemoteImageView: UIImageView {
                             shouldDownSample: Bool,
                             size:CGSize, scale: CGFloat,
                             completionHandler: ((Result<UIImage?, Error>) -> Void)? = nil) {
-        SDRemoteImageView.decodingQueue.async { [weak self] in
+        decodingCachedImageWorkItem?.cancel()
+        decodingCachedImageWorkItem = DispatchWorkItem(block: { [weak self] in
             let data = cachedResponse.data
             let image = shouldDownSample ? self?.downsample(imageData: data, for: size, scale: scale) : UIImage(data: data)
             self?.applyImage(image, completionHandler: completionHandler)
-        }
+        })
+        SDRemoteImageView.decodingQueue.async(execute: decodingCachedImageWorkItem!)
     }
     
     private func dataTaskToDownloadImage(for url: URL,

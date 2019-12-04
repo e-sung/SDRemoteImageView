@@ -10,7 +10,9 @@ public class SDRemoteImageView: UIImageView {
     /// DispatchQueue where Decoding should happen.
     private static let decodingQueue = DispatchQueue(label: "SDRemoteImageView Decoding Queue", qos: .userInteractive)
     
-    private static var imageCache:URLCache!
+    private static var imageCache = URLCache(memoryCapacity: Int(ProcessInfo.processInfo.physicalMemory / 10),
+                                             diskCapacity: 1024*1024,
+                                             diskPath: nil)
     private var decodingCachedImageWorkItem: DispatchWorkItem?
     
     /**
@@ -23,11 +25,6 @@ public class SDRemoteImageView: UIImageView {
     
     */
     public func loadImage(from url: URL?, placeHolderImage: UIImage? = nil, errorImage: UIImage? = nil, transitionTime: TimeInterval = 0, shouldCache:Bool = true, shouldDownSample:Bool = true, completionHandler: ((Result<UIImage?, Error>) -> Void)? = nil) {
-        
-        if SDRemoteImageView.imageCache == nil {
-            let memoryCapacity = Int(ProcessInfo.processInfo.physicalMemory / 10)
-            SDRemoteImageView.imageCache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: 1024*1024, diskPath: nil)
-        }
         
         guard let url = url else {
             // shows default error image and return failure

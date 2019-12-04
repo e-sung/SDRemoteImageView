@@ -50,7 +50,12 @@ public class SDRemoteImageView: UIImageView {
         }
         else {
             // show placeholder if provided
-            self.image = placeHolderImage ?? SDRemoteImageView.defaultPlaceHolderImage
+            if let placeHolderImage = placeHolderImage {
+                self.image = placeHolderImage
+            }
+            else if let defaultPlaceHolderImage = SDRemoteImageView.defaultErrorImage {
+                self.image = defaultPlaceHolderImage
+            }
             self.dataTaskDownloadImage = dataTaskToDownloadImage(for: url,
                                                                  placeHolderImage: placeHolderImage,
                                                                  errorImage: errorImage,

@@ -7,6 +7,8 @@ public class SDRemoteImageView: UIImageView {
     public static var defaultErrorImage: UIImage?
     /// optional placeholder image to show while downloading image
     public static var defaultPlaceHolderImage: UIImage?
+    /// DispatchQueue where Decoding should happen.
+    public static let decodingQueue = DispatchQueue(label: "SDRemoteImageView Decoding Queue", qos: .userInteractive)
     
     /**
      Fetch image data from url, downsample the data, and display it.
@@ -24,29 +26,40 @@ public class SDRemoteImageView: UIImageView {
             completionHandler(.failure(RemoteImageViewError.unknown))
             return
         }
-
-        // show placeholder image if provided
-        self.image = placeHolderImage
         
         let pointSize = frame.size
         let scale = UIScreen.main.scale
-        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-            let cachedData = URLCache.shared.cachedResponse(for: URLRequest(url: url))?.data
-            if let data = cachedData {
-                let image = shouldDownSample ? self?.downsample(imageData: data, for: pointSize, scale: scale) : UIImage(data: data)
-                self?.applyImage(image, completionHandler: completionHandler)
-            }
-            else {
-                self?.dataTaskToDownloadImage(for: url,
-                                              placeHolderImage: placeHolderImage,
-                                              errorImage: errorImage,
-                                              shouldCache: shouldCache,
-                                              shouldDownSample: shouldDownSample,
-                                              size: pointSize,
-                                              scale: scale,
-                                              completionHandler: completionHandler)
-                    .resume()
-            }
+        
+        if let cachedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
+            applyImage(from: cachedResponse,
+                       shouldDownSample: shouldDownSample,
+                       size: pointSize,
+                       scale: scale,
+                       completionHandler: completionHandler)
+        }
+        else {
+            // show placeholder if provided
+            self.image = placeHolderImage ?? SDRemoteImageView.defaultPlaceHolderImage
+            dataTaskToDownloadImage(for: url,
+                                    placeHolderImage: placeHolderImage,
+                                    errorImage: errorImage,
+                                    shouldCache: shouldCache,
+                                    shouldDownSample: shouldDownSample,
+                                    size: pointSize,
+                                    scale: scale,
+                                    completionHandler: completionHandler)
+                .resume()
+        }
+    }
+    
+    private func applyImage(from cachedResponse: CachedURLResponse,
+                            shouldDownSample: Bool,
+                            size:CGSize, scale: CGFloat,
+                            completionHandler: @escaping(Result<UIImage?, Error>) -> Void) {
+        SDRemoteImageView.decodingQueue.async { [weak self] in
+            let data = cachedResponse.data
+            let image = shouldDownSample ? self?.downsample(imageData: data, for: size, scale: scale) : UIImage(data: data)
+            self?.applyImage(image, completionHandler: completionHandler)
         }
     }
     
@@ -69,9 +82,7 @@ public class SDRemoteImageView: UIImageView {
                 let cachedResponse = CachedURLResponse(response: response, data: data)
                 URLCache.shared.storeCachedResponse(cachedResponse, for: URLRequest(url: url))
             }
-            DispatchQueue.main.async {
-                self?.applyImage(image, completionHandler: completionHandler )
-            }
+            self?.applyImage(image, completionHandler: completionHandler )
         })
     }
     

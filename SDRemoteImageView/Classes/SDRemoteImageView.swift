@@ -10,6 +10,8 @@ public class SDRemoteImageView: UIImageView {
     /// DispatchQueue where Decoding should happen.
     public static let decodingQueue = DispatchQueue(label: "SDRemoteImageView Decoding Queue", qos: .userInteractive)
     
+    private var dataTaskDownloadImage: URLSessionDataTask?
+    
     /**
      Fetch image data from url, downsample the data, and display it.
      - parameters:
@@ -20,6 +22,9 @@ public class SDRemoteImageView: UIImageView {
     
     */
     public func loadImage(from url: URL?, placeHolderImage: UIImage? = nil, errorImage: UIImage? = nil, shouldCache:Bool = true, shouldDownSample:Bool = true, completionHandler: @escaping (Result<UIImage?, Error>) -> Void) {
+        
+        dataTaskDownloadImage?.cancel()
+        
         guard let url = url else {
             // shows default error image and return failure
             self.image = SDRemoteImageView.defaultErrorImage
@@ -40,15 +45,15 @@ public class SDRemoteImageView: UIImageView {
         else {
             // show placeholder if provided
             self.image = placeHolderImage ?? SDRemoteImageView.defaultPlaceHolderImage
-            dataTaskToDownloadImage(for: url,
-                                    placeHolderImage: placeHolderImage,
-                                    errorImage: errorImage,
-                                    shouldCache: shouldCache,
-                                    shouldDownSample: shouldDownSample,
-                                    size: pointSize,
-                                    scale: scale,
-                                    completionHandler: completionHandler)
-                .resume()
+            self.dataTaskDownloadImage = dataTaskToDownloadImage(for: url,
+                                                                 placeHolderImage: placeHolderImage,
+                                                                 errorImage: errorImage,
+                                                                 shouldCache: shouldCache,
+                                                                 shouldDownSample: shouldDownSample,
+                                                                 size: pointSize,
+                                                                 scale: scale,
+                                                                 completionHandler: completionHandler)
+            self.dataTaskDownloadImage?.resume()
         }
     }
     

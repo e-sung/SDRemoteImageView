@@ -14,6 +14,7 @@ public class SDRemoteImageView: UIImageView {
                                              diskCapacity: 1024*1024,
                                              diskPath: nil)
     private var decodingCachedImageWorkItem: DispatchWorkItem?
+    private var downloadTask: URLSessionDataTask?
     
     /**
      Fetch image data from url, downsample the data, and display it.
@@ -26,6 +27,7 @@ public class SDRemoteImageView: UIImageView {
     */
     public func loadImage(from url: URL?, placeHolderImage: UIImage? = nil, errorImage: UIImage? = nil, transitionTime: TimeInterval = 0, shouldCache:Bool = true, shouldDownSample:Bool = true, completionHandler: ((Result<UIImage?, Error>) -> Void)? = nil) {
         
+        downloadTask?.cancel()
         guard let url = url else {
             // shows default error image and return failure
             self.image = SDRemoteImageView.defaultErrorImage
@@ -51,7 +53,7 @@ public class SDRemoteImageView: UIImageView {
             else if let defaultPlaceHolderImage = SDRemoteImageView.defaultErrorImage {
                 self.image = defaultPlaceHolderImage
             }
-            dataTaskToDownloadImage(for: url,
+            downloadTask = dataTaskToDownloadImage(for: url,
                                     placeHolderImage: placeHolderImage,
                                     errorImage: errorImage,
                                     transitionTime: transitionTime,
@@ -60,7 +62,7 @@ public class SDRemoteImageView: UIImageView {
                                     size: pointSize,
                                     scale: scale,
                                     completionHandler: completionHandler)
-                .resume()
+            downloadTask?.resume()
         }
     }
     

@@ -78,8 +78,10 @@ public class SDRemoteImageView: UIImageView {
                                          completionHandler: @escaping(Result<UIImage?, Error>)->Void) -> URLSessionDataTask {
         return URLSession.shared.dataTask(with: url, completionHandler: { [weak self] data, response, error in
             guard let data = data, let response = response else {
-                self?.image = SDRemoteImageView.defaultErrorImage
-                completionHandler(.failure(error ?? RemoteImageViewError.invalidResponse))
+                DispatchQueue.main.async {
+                    self?.image = SDRemoteImageView.defaultErrorImage
+                    completionHandler(.failure(error ?? RemoteImageViewError.invalidResponse))
+                }
                 return
             }
             let image:UIImage? = shouldDownSample ? self?.downsample(imageData: data, for: size, scale: scale) : UIImage(data: data)

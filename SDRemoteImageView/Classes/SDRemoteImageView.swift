@@ -22,7 +22,7 @@ public class SDRemoteImageView: UIImageView {
         - completionHandler: callback to notify that downloading has finished. default is nil
     
     */
-    public func loadImage(from url: URL?, placeHolderImage: UIImage? = nil, errorImage: UIImage? = nil, shouldCache:Bool = true, shouldDownSample:Bool = true, completionHandler: ((Result<UIImage?, Error>) -> Void)? = nil) {
+    public func loadImage(from url: URL?, placeHolderImage: UIImage? = nil, errorImage: UIImage? = nil, transitionTime: TimeInterval = 0, shouldCache:Bool = true, shouldDownSample:Bool = true, completionHandler: ((Result<UIImage?, Error>) -> Void)? = nil) {
         
         if SDRemoteImageView.imageCache == nil {
             let memoryCapacity = Int(ProcessInfo.processInfo.physicalMemory / 10)
@@ -59,6 +59,7 @@ public class SDRemoteImageView: UIImageView {
             self.dataTaskDownloadImage = dataTaskToDownloadImage(for: url,
                                                                  placeHolderImage: placeHolderImage,
                                                                  errorImage: errorImage,
+                                                                 transitionTime: transitionTime,
                                                                  shouldCache: shouldCache,
                                                                  shouldDownSample: shouldDownSample,
                                                                  size: pointSize,
@@ -82,6 +83,7 @@ public class SDRemoteImageView: UIImageView {
     private func dataTaskToDownloadImage(for url: URL,
                                          placeHolderImage: UIImage?,
                                          errorImage: UIImage?,
+                                         transitionTime: TimeInterval,
                                          shouldCache: Bool,
                                          shouldDownSample: Bool,
                                          size: CGSize,
@@ -100,7 +102,7 @@ public class SDRemoteImageView: UIImageView {
                 let cachedResponse = CachedURLResponse(response: response, data: data)
                 SDRemoteImageView.imageCache.storeCachedResponse(cachedResponse, for: URLRequest(url: url))
             }
-            self?.applyImage(image, completionHandler: completionHandler )
+            self?.applyImage(image, transitionTime: transitionTime, completionHandler: completionHandler )
         })
     }
     
@@ -118,22 +120,22 @@ public class SDRemoteImageView: UIImageView {
         return UIImage(cgImage: downsampledImage)
     }
     
-    private func applyImage(_ image: UIImage?, completionHandler: ((Result<UIImage?, Error>) -> Void)? = nil) {
-        guard let image = image else {
-            completionHandler?(.failure(RemoteImageViewError.unknown))
-            self.image = SDRemoteImageView.defaultErrorImage
-            return
-        }
+    private func applyImage(_ image: UIImage?, transitionTime:TimeInterval = 0, completionHandler: ((Result<UIImage?, Error>) -> Void)? = nil) {
         DispatchQueue.main.async {[weak self] in
             guard let sself = self else { return }
-            UIView.transition(with: sself,
-                              duration: 0.3,
-                              options: .transitionCrossDissolve,
-                              animations: {
-                                sself.image = image
-                                completionHandler?(.success(image))
+            guard let image = image else {
+                completionHandler?(.failure(RemoteImageViewError.unknown))
+                sself.image = SDRemoteImageView.defaultErrorImage
+                return
             }
-            , completion: nil)
+            
+            self?.alpha = 0
+            self?.image = image
+            UIView.animate(withDuration: transitionTime, animations: {
+                self?.alpha = 1
+            }, completion: { _ in
+                completionHandler?(.success(image))
+            })
         }
     }
     

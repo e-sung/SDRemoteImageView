@@ -28,14 +28,14 @@ public class SDRemoteImageView: UIImageView {
         guard let url = url else {
             // shows default error image and return failure
             self.image = SDRemoteImageView.defaultErrorImage
-            completionHandler(.failure(RemoteImageViewError.unknown))
+            completionHandler?(.failure(RemoteImageViewError.unknown))
             return
         }
         
         let pointSize = frame.size
         let scale = UIScreen.main.scale
         
-        if let cachedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
+        if let cachedResponse = SDRemoteImageView.imageCache.cachedResponse(for: URLRequest(url: url)) {
             applyImage(from: cachedResponse,
                        shouldDownSample: shouldDownSample,
                        size: pointSize,
@@ -60,7 +60,7 @@ public class SDRemoteImageView: UIImageView {
     private func applyImage(from cachedResponse: CachedURLResponse,
                             shouldDownSample: Bool,
                             size:CGSize, scale: CGFloat,
-                            completionHandler: @escaping(Result<UIImage?, Error>) -> Void) {
+                            completionHandler: ((Result<UIImage?, Error>) -> Void)? = nil) {
         SDRemoteImageView.decodingQueue.async { [weak self] in
             let data = cachedResponse.data
             let image = shouldDownSample ? self?.downsample(imageData: data, for: size, scale: scale) : UIImage(data: data)
@@ -75,12 +75,12 @@ public class SDRemoteImageView: UIImageView {
                                          shouldDownSample: Bool,
                                          size: CGSize,
                                          scale: CGFloat,
-                                         completionHandler: @escaping(Result<UIImage?, Error>)->Void) -> URLSessionDataTask {
+                                         completionHandler: ((Result<UIImage?, Error>)->Void)? = nil) -> URLSessionDataTask {
         return URLSession.shared.dataTask(with: url, completionHandler: { [weak self] data, response, error in
             guard let data = data, let response = response else {
                 DispatchQueue.main.async {
                     self?.image = SDRemoteImageView.defaultErrorImage
-                    completionHandler(.failure(error ?? RemoteImageViewError.invalidResponse))
+                    completionHandler?(.failure(error ?? RemoteImageViewError.invalidResponse))
                 }
                 return
             }
@@ -107,9 +107,9 @@ public class SDRemoteImageView: UIImageView {
         return UIImage(cgImage: downsampledImage)
     }
     
-    private func applyImage(_ image: UIImage?, completionHandler: @escaping (Result<UIImage?, Error>) -> Void) {
+    private func applyImage(_ image: UIImage?, completionHandler: ((Result<UIImage?, Error>) -> Void)? = nil) {
         guard let image = image else {
-            completionHandler(.failure(RemoteImageViewError.unknown))
+            completionHandler?(.failure(RemoteImageViewError.unknown))
             self.image = SDRemoteImageView.defaultErrorImage
             return
         }
@@ -120,7 +120,7 @@ public class SDRemoteImageView: UIImageView {
                               options: .transitionCrossDissolve,
                               animations: {
                                 sself.image = image
-                                completionHandler(.success(image))
+                                completionHandler?(.success(image))
             }
             , completion: nil)
         }

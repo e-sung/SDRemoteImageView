@@ -3,20 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		40E45E865D77A1D31E82A25ED6E32C84 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		5E42669BB9B7D36A8E2B266E5416393B /* SDRemoteImageView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A918368B284706A0D230D3C3775676 /* SDRemoteImageView-dummy.m */; };
+		3103810A624055C77821237D49C96B57 /* RemoteImageDownloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0507A0AF6236BD19522FD894C05D1 /* RemoteImageDownloadable.swift */; };
+		38C12A8A309663B11FAB918A072CBFB4 /* SDRemoteImageView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEB49F99C76094B862F1879B591ACCC /* SDRemoteImageView-dummy.m */; };
+		40E45E865D77A1D31E82A25ED6E32C84 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		655A0D194D75B8BCDB9D983452508151 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
 		65E48388066E66225DCCE2D553C977E5 /* Pods-SDRemoteImageView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4B83061B0B7D2AA2EE9E807208063B /* Pods-SDRemoteImageView_Example-dummy.m */; };
-		6FDABA032840350E5AC0C81B07F647FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		6FDABA032840350E5AC0C81B07F647FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		7A086A036E3E80C1E6212334D18B7E9A /* Pods-SDRemoteImageView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD209DE0EEC14F186B654CF68D7FCF95 /* Pods-SDRemoteImageView_Tests-dummy.m */; };
+		8C68CB8263AA8F237BF0B5F7461FC9AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		8DB0BF2D078D41C040717B623041F895 /* Pods-SDRemoteImageView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B6E8CB29C77C49B91E8E4980C2A6CDA1 /* Pods-SDRemoteImageView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		98F1131B1E75B409ABD53D39329110CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		CB7E535B8F7CF646CB03852F579F6F33 /* SDRemoteImageView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 403DCFF1C29AE87D615C47D0DE5B09B3 /* SDRemoteImageView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF42BF1E19EE70A32F2A879BD727941A /* SDRemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE08494CF0287528CD16913C0C579E5 /* SDRemoteImageView.swift */; };
+		91179A4194CA2EEA4463013418E63B00 /* ImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281D5AC4C9B413FE1618CDE7C8629598 /* ImageView+Extension.swift */; };
+		BEBE983CD6B065FBB7F4CFF50B3975B3 /* RemoteImageViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488877964C14E32A120ACF90A946E2EC /* RemoteImageViewError.swift */; };
 		D25C52F46F6A55131A9588C4FBD20BB9 /* Pods-SDRemoteImageView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 328DA677883A35157245E7EB2D78F55F /* Pods-SDRemoteImageView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EB3FDC44E3F47305DD1088E247522132 /* SDRemoteImageView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A58F1223DBAD22260C2E041D0ACABFDB /* SDRemoteImageView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F596C06698DB066070AA00B4582487FC /* SDImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F42366879D75F9615A4543F94837C /* SDImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,37 +41,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0225433E0316A789A23D07C6FA24E85D /* SDRemoteImageView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SDRemoteImageView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		055B2945D2CEFEEC70C663C9D3679270 /* SDRemoteImageView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDRemoteImageView.framework; path = SDRemoteImageView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B0F9E2CB40E0F3307B905DE168FE5D /* Pods-SDRemoteImageView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SDRemoteImageView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		19F4E3D1A7D6CEE8CC3A0633367D38D7 /* Pods-SDRemoteImageView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SDRemoteImageView_Tests.modulemap"; sourceTree = "<group>"; };
-		1AE08494CF0287528CD16913C0C579E5 /* SDRemoteImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SDRemoteImageView.swift; path = SDRemoteImageView/Classes/SDRemoteImageView.swift; sourceTree = "<group>"; };
+		281D5AC4C9B413FE1618CDE7C8629598 /* ImageView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageView+Extension.swift"; path = "SDRemoteImageView/Classes/ImageView+Extension.swift"; sourceTree = "<group>"; };
 		310CE0ED47414CC0A7B76E6D9895C468 /* Pods-SDRemoteImageView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SDRemoteImageView_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		328DA677883A35157245E7EB2D78F55F /* Pods-SDRemoteImageView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SDRemoteImageView_Example-umbrella.h"; sourceTree = "<group>"; };
 		3C4E9934B9626A05B88F34F574B589A8 /* Pods_SDRemoteImageView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SDRemoteImageView_Tests.framework; path = "Pods-SDRemoteImageView_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		403DCFF1C29AE87D615C47D0DE5B09B3 /* SDRemoteImageView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDRemoteImageView-umbrella.h"; sourceTree = "<group>"; };
 		40FA50AB3DE8250740A924E36B357D02 /* Pods-SDRemoteImageView_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SDRemoteImageView_Example-Info.plist"; sourceTree = "<group>"; };
-		425E340575CDD60C1F991973231FAD73 /* SDRemoteImageView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDRemoteImageView-prefix.pch"; sourceTree = "<group>"; };
-		44740906F2A2504130B2A6C1BF448318 /* SDRemoteImageView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SDRemoteImageView.modulemap; sourceTree = "<group>"; };
+		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		46B5F963051A8836D4B66BB8AB253984 /* Pods-SDRemoteImageView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SDRemoteImageView_Example.modulemap"; sourceTree = "<group>"; };
+		488877964C14E32A120ACF90A946E2EC /* RemoteImageViewError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RemoteImageViewError.swift; path = SDRemoteImageView/Classes/RemoteImageViewError.swift; sourceTree = "<group>"; };
+		549EE316690D07A1695271232949296A /* SDRemoteImageView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDRemoteImageView-prefix.pch"; sourceTree = "<group>"; };
 		69C18CFADBB9DE645F67ED7D76152E3C /* Pods-SDRemoteImageView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SDRemoteImageView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7ACCE902003099ACDA96C49876909BBE /* Pods-SDRemoteImageView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SDRemoteImageView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7C97B1A7DFC4D9F7C19820741B844879 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		7F344B493491A1AE95C29AD8A6CA2144 /* SDRemoteImageView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDRemoteImageView.xcconfig; sourceTree = "<group>"; };
+		804CDA6CDE1A2BEC30E3C1E8EBD91DBF /* SDRemoteImageView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SDRemoteImageView-Info.plist"; sourceTree = "<group>"; };
 		85B641CCF3D05C607923A67D5E14FA93 /* Pods-SDRemoteImageView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SDRemoteImageView_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		89763177818735A323E67798C037D67A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		8A6010E7A9C118BE21568CA735ED941B /* Pods-SDRemoteImageView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SDRemoteImageView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		8C67012E8A22B786E0D1710794E681CE /* SDRemoteImageView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SDRemoteImageView-Info.plist"; sourceTree = "<group>"; };
-		9A2CFAFA77A94D6604A49318664493DC /* SDRemoteImageView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SDRemoteImageView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9C9F42366879D75F9615A4543F94837C /* SDImageLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SDImageLoader.swift; path = SDRemoteImageView/Classes/SDImageLoader.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A33F80997A532C14A033957DF50E02B8 /* Pods-SDRemoteImageView_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SDRemoteImageView_Tests-Info.plist"; sourceTree = "<group>"; };
-		AA75FE05083F7EA9A5F6BED8308C4CB4 /* SDRemoteImageView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDRemoteImageView.xcconfig; sourceTree = "<group>"; };
+		A58F1223DBAD22260C2E041D0ACABFDB /* SDRemoteImageView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDRemoteImageView-umbrella.h"; sourceTree = "<group>"; };
+		A6DE4BB363C279A8BE391A30E0C82B5D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		AD209DE0EEC14F186B654CF68D7FCF95 /* Pods-SDRemoteImageView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SDRemoteImageView_Tests-dummy.m"; sourceTree = "<group>"; };
 		B42344944F7DE894A1C43CABCB071D41 /* Pods-SDRemoteImageView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SDRemoteImageView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		B62F3813EACD72F3F1796DD66C065517 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		B6E8CB29C77C49B91E8E4980C2A6CDA1 /* Pods-SDRemoteImageView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SDRemoteImageView_Tests-umbrella.h"; sourceTree = "<group>"; };
-		C3A918368B284706A0D230D3C3775676 /* SDRemoteImageView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDRemoteImageView-dummy.m"; sourceTree = "<group>"; };
 		C6181E28BCEDF3B1F554D2BB75EFC63A /* Pods_SDRemoteImageView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SDRemoteImageView_Example.framework; path = "Pods-SDRemoteImageView_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C63C4E7B6348B27FF72A6D7A4F4804C0 /* SDRemoteImageView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SDRemoteImageView.modulemap; sourceTree = "<group>"; };
+		C9E0507A0AF6236BD19522FD894C05D1 /* RemoteImageDownloadable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RemoteImageDownloadable.swift; path = SDRemoteImageView/Classes/RemoteImageDownloadable.swift; sourceTree = "<group>"; };
 		D136D99108736FCD77764AAEF1D801A6 /* Pods-SDRemoteImageView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SDRemoteImageView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		DE4B83061B0B7D2AA2EE9E807208063B /* Pods-SDRemoteImageView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SDRemoteImageView_Example-dummy.m"; sourceTree = "<group>"; };
+		EFEB49F99C76094B862F1879B591ACCC /* SDRemoteImageView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDRemoteImageView-dummy.m"; sourceTree = "<group>"; };
 		F7F5B3E7A8EA0ED6351E564F6EC5ABCE /* Pods-SDRemoteImageView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SDRemoteImageView_Example-frameworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +88,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		632B8B2F5B9B0BEF5B887CC0F060C810 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C68CB8263AA8F237BF0B5F7461FC9AE /* Foundation.framework in Frameworks */,
+				655A0D194D75B8BCDB9D983452508151 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		83F9879A2AAC6C84C0924388D22292E8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -88,44 +105,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9154E743578B8039934675B6F694D48E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				98F1131B1E75B409ABD53D39329110CD /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09EA75CEBF5A9A90B8B22D98800AE5E2 /* SDRemoteImageView */ = {
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1AE08494CF0287528CD16913C0C579E5 /* SDRemoteImageView.swift */,
-				3463F52512396C9298226169C68DA324 /* Pod */,
-				D93F8441A660AEE678E2B377732B2950 /* Support Files */,
+				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
 			);
-			name = SDRemoteImageView;
-			path = ../..;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3463F52512396C9298226169C68DA324 /* Pod */ = {
+		2E255E8B6540B5BA064D5330C9BADF00 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				7C97B1A7DFC4D9F7C19820741B844879 /* LICENSE */,
-				B62F3813EACD72F3F1796DD66C065517 /* README.md */,
-				9A2CFAFA77A94D6604A49318664493DC /* SDRemoteImageView.podspec */,
+				A6DE4BB363C279A8BE391A30E0C82B5D /* LICENSE */,
+				89763177818735A323E67798C037D67A /* README.md */,
+				0225433E0316A789A23D07C6FA24E85D /* SDRemoteImageView.podspec */,
 			);
 			name = Pod;
-			sourceTree = "<group>";
-		};
-		48944B8C5C12D5342571355812E2163E /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				09EA75CEBF5A9A90B8B22D98800AE5E2 /* SDRemoteImageView */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		5BD05C2AFF8FD1FB4A43E7E0CFDE4002 /* Targets Support Files */ = {
@@ -135,6 +133,28 @@
 				9F4F8C1DE4273BADFCACF06EB500D008 /* Pods-SDRemoteImageView_Tests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		926C1EFF99D653345111D3BAE8D4EE33 /* SDRemoteImageView */ = {
+			isa = PBXGroup;
+			children = (
+				281D5AC4C9B413FE1618CDE7C8629598 /* ImageView+Extension.swift */,
+				C9E0507A0AF6236BD19522FD894C05D1 /* RemoteImageDownloadable.swift */,
+				488877964C14E32A120ACF90A946E2EC /* RemoteImageViewError.swift */,
+				9C9F42366879D75F9615A4543F94837C /* SDImageLoader.swift */,
+				2E255E8B6540B5BA064D5330C9BADF00 /* Pod */,
+				AE88832FCB10D624A06BEB710112D818 /* Support Files */,
+			);
+			name = SDRemoteImageView;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		961CA9E5E86AFB8ED8E6D2BFC5BBF44D /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				926C1EFF99D653345111D3BAE8D4EE33 /* SDRemoteImageView */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		9F4F8C1DE4273BADFCACF06EB500D008 /* Pods-SDRemoteImageView_Tests */ = {
@@ -153,45 +173,38 @@
 			path = "Target Support Files/Pods-SDRemoteImageView_Tests";
 			sourceTree = "<group>";
 		};
-		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+		AE88832FCB10D624A06BEB710112D818 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+				C63C4E7B6348B27FF72A6D7A4F4804C0 /* SDRemoteImageView.modulemap */,
+				7F344B493491A1AE95C29AD8A6CA2144 /* SDRemoteImageView.xcconfig */,
+				EFEB49F99C76094B862F1879B591ACCC /* SDRemoteImageView-dummy.m */,
+				804CDA6CDE1A2BEC30E3C1E8EBD91DBF /* SDRemoteImageView-Info.plist */,
+				549EE316690D07A1695271232949296A /* SDRemoteImageView-prefix.pch */,
+				A58F1223DBAD22260C2E041D0ACABFDB /* SDRemoteImageView-umbrella.h */,
 			);
-			name = iOS;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/SDRemoteImageView";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				48944B8C5C12D5342571355812E2163E /* Development Pods */,
-				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				961CA9E5E86AFB8ED8E6D2BFC5BBF44D /* Development Pods */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
 				F60B9D9A47BB6A93FFEA968B0E08795B /* Products */,
 				5BD05C2AFF8FD1FB4A43E7E0CFDE4002 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+				436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */,
+				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D93F8441A660AEE678E2B377732B2950 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				44740906F2A2504130B2A6C1BF448318 /* SDRemoteImageView.modulemap */,
-				AA75FE05083F7EA9A5F6BED8308C4CB4 /* SDRemoteImageView.xcconfig */,
-				C3A918368B284706A0D230D3C3775676 /* SDRemoteImageView-dummy.m */,
-				8C67012E8A22B786E0D1710794E681CE /* SDRemoteImageView-Info.plist */,
-				425E340575CDD60C1F991973231FAD73 /* SDRemoteImageView-prefix.pch */,
-				403DCFF1C29AE87D615C47D0DE5B09B3 /* SDRemoteImageView-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/SDRemoteImageView";
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		F60B9D9A47BB6A93FFEA968B0E08795B /* Products */ = {
@@ -224,19 +237,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		11F06334C2EF517C434EF7A47195C64B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CB7E535B8F7CF646CB03852F579F6F33 /* SDRemoteImageView-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		56DE6BF03BAFE298BCCC63DE104B90EC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8DB0BF2D078D41C040717B623041F895 /* Pods-SDRemoteImageView_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95188023193978B41A706FD4C271462D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB3FDC44E3F47305DD1088E247522132 /* SDRemoteImageView-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,12 +285,12 @@
 		};
 		9017A42DFF9C65B31CC76CCD788DD866 /* SDRemoteImageView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE3A5FEECC93E914973FF5FBC71110CD /* Build configuration list for PBXNativeTarget "SDRemoteImageView" */;
+			buildConfigurationList = 3296CD0F02474A12285FAA86AABBEC9E /* Build configuration list for PBXNativeTarget "SDRemoteImageView" */;
 			buildPhases = (
-				11F06334C2EF517C434EF7A47195C64B /* Headers */,
-				5422B982F7EE9909529BCE7C6C8F0CAB /* Sources */,
-				9154E743578B8039934675B6F694D48E /* Frameworks */,
-				AC0B91779C97DE367DC3DBD7875EDD50 /* Resources */,
+				95188023193978B41A706FD4C271462D /* Headers */,
+				2E40F4DD39E3A51B0940A28D719A5D7A /* Sources */,
+				632B8B2F5B9B0BEF5B887CC0F060C810 /* Frameworks */,
+				03EA6CAB3443FC1B563884DFE6C33E86 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -317,11 +330,12 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = F60B9D9A47BB6A93FFEA968B0E08795B /* Products */;
@@ -336,6 +350,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		03EA6CAB3443FC1B563884DFE6C33E86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14980255D7300765C7954C915BD5FFA8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -350,22 +371,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC0B91779C97DE367DC3DBD7875EDD50 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5422B982F7EE9909529BCE7C6C8F0CAB /* Sources */ = {
+		2E40F4DD39E3A51B0940A28D719A5D7A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E42669BB9B7D36A8E2B266E5416393B /* SDRemoteImageView-dummy.m in Sources */,
-				CF42BF1E19EE70A32F2A879BD727941A /* SDRemoteImageView.swift in Sources */,
+				91179A4194CA2EEA4463013418E63B00 /* ImageView+Extension.swift in Sources */,
+				3103810A624055C77821237D49C96B57 /* RemoteImageDownloadable.swift in Sources */,
+				BEBE983CD6B065FBB7F4CFF50B3975B3 /* RemoteImageViewError.swift in Sources */,
+				F596C06698DB066070AA00B4582487FC /* SDImageLoader.swift in Sources */,
+				38C12A8A309663B11FAB918A072CBFB4 /* SDRemoteImageView-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,43 +420,9 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		51A22CF0B1E6A524AA1B21ACEFDFAA63 /* Release */ = {
+		186556ED5BE40CAE6326538CE9D53D2B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 310CE0ED47414CC0A7B76E6D9895C468 /* Pods-SDRemoteImageView_Tests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SDRemoteImageView_Tests/Pods-SDRemoteImageView_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SDRemoteImageView_Tests/Pods-SDRemoteImageView_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7E6C36996010E02D5F83DA3838084EB2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA75FE05083F7EA9A5F6BED8308C4CB4 /* SDRemoteImageView.xcconfig */;
+			baseConfigurationReference = 7F344B493491A1AE95C29AD8A6CA2144 /* SDRemoteImageView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -454,45 +437,18 @@
 				INFOPLIST_FILE = "Target Support Files/SDRemoteImageView/SDRemoteImageView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/SDRemoteImageView/SDRemoteImageView.modulemap";
 				PRODUCT_MODULE_NAME = SDRemoteImageView;
 				PRODUCT_NAME = SDRemoteImageView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		AEBCB7B66A6F370A7B008027E2C78582 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA75FE05083F7EA9A5F6BED8308C4CB4 /* SDRemoteImageView.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SDRemoteImageView/SDRemoteImageView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SDRemoteImageView/SDRemoteImageView-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SDRemoteImageView/SDRemoteImageView.modulemap";
-				PRODUCT_MODULE_NAME = SDRemoteImageView;
-				PRODUCT_NAME = SDRemoteImageView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -500,7 +456,7 @@
 			};
 			name = Release;
 		};
-		B0087CB4594321EF41619F3181FE120E /* Release */ = {
+		510B057D2E9F059C50D52DA5D90F3ACF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -548,7 +504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -560,7 +516,45 @@
 			};
 			name = Release;
 		};
-		B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */ = {
+		5ED67C85FAA5163BD1B41A47E6F64428 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69C18CFADBB9DE645F67ED7D76152E3C /* Pods-SDRemoteImageView_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SDRemoteImageView_Tests/Pods-SDRemoteImageView_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SDRemoteImageView_Tests/Pods-SDRemoteImageView_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		804E13245C9FBBE6A340C555CA8B2B4C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -611,7 +605,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -624,11 +618,12 @@
 			};
 			name = Debug;
 		};
-		BBB86DA5E71CB701F33D622A48BA5E8F /* Debug */ = {
+		8953FD1871659F80E0AAEF2D4E805F18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 85B641CCF3D05C607923A67D5E14FA93 /* Pods-SDRemoteImageView_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -640,8 +635,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-SDRemoteImageView_Example/Pods-SDRemoteImageView_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SDRemoteImageView_Example/Pods-SDRemoteImageView_Example.modulemap";
 				OTHER_LDFLAGS = "";
@@ -657,44 +656,12 @@
 			};
 			name = Debug;
 		};
-		C201B2C2540A5C2CDFB80B77E82EAE8F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69C18CFADBB9DE645F67ED7D76152E3C /* Pods-SDRemoteImageView_Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SDRemoteImageView_Tests/Pods-SDRemoteImageView_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SDRemoteImageView_Tests/Pods-SDRemoteImageView_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		C5AB979D7CD09A1FE12397D3678F236A /* Release */ = {
+		96F8F6FBC316B4F8A948312D00AD5D48 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13B0F9E2CB40E0F3307B905DE168FE5D /* Pods-SDRemoteImageView_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -706,8 +673,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-SDRemoteImageView_Example/Pods-SDRemoteImageView_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SDRemoteImageView_Example/Pods-SDRemoteImageView_Example.modulemap";
 				OTHER_LDFLAGS = "";
@@ -724,14 +695,97 @@
 			};
 			name = Release;
 		};
+		A3AD80BDF22C1238EBF365C322C4DFCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 310CE0ED47414CC0A7B76E6D9895C468 /* Pods-SDRemoteImageView_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SDRemoteImageView_Tests/Pods-SDRemoteImageView_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SDRemoteImageView_Tests/Pods-SDRemoteImageView_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A67ADCC8477864D51F2BA8540E61BBAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F344B493491A1AE95C29AD8A6CA2144 /* SDRemoteImageView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SDRemoteImageView/SDRemoteImageView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SDRemoteImageView/SDRemoteImageView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SDRemoteImageView/SDRemoteImageView.modulemap";
+				PRODUCT_MODULE_NAME = SDRemoteImageView;
+				PRODUCT_NAME = SDRemoteImageView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3296CD0F02474A12285FAA86AABBEC9E /* Build configuration list for PBXNativeTarget "SDRemoteImageView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A67ADCC8477864D51F2BA8540E61BBAD /* Debug */,
+				186556ED5BE40CAE6326538CE9D53D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */,
-				B0087CB4594321EF41619F3181FE120E /* Release */,
+				804E13245C9FBBE6A340C555CA8B2B4C /* Debug */,
+				510B057D2E9F059C50D52DA5D90F3ACF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -739,17 +793,8 @@
 		768DDDD97CBF1D95D4E724FF4B437DF5 /* Build configuration list for PBXNativeTarget "Pods-SDRemoteImageView_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C201B2C2540A5C2CDFB80B77E82EAE8F /* Debug */,
-				51A22CF0B1E6A524AA1B21ACEFDFAA63 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BE3A5FEECC93E914973FF5FBC71110CD /* Build configuration list for PBXNativeTarget "SDRemoteImageView" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7E6C36996010E02D5F83DA3838084EB2 /* Debug */,
-				AEBCB7B66A6F370A7B008027E2C78582 /* Release */,
+				5ED67C85FAA5163BD1B41A47E6F64428 /* Debug */,
+				A3AD80BDF22C1238EBF365C322C4DFCD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -757,8 +802,8 @@
 		E679B00FB5117AB38AF3E94FC8C0A947 /* Build configuration list for PBXNativeTarget "Pods-SDRemoteImageView_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BBB86DA5E71CB701F33D622A48BA5E8F /* Debug */,
-				C5AB979D7CD09A1FE12397D3678F236A /* Release */,
+				8953FD1871659F80E0AAEF2D4E805F18 /* Debug */,
+				96F8F6FBC316B4F8A948312D00AD5D48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

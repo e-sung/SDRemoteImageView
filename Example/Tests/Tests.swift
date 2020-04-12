@@ -9,12 +9,12 @@ class Tests: XCTestCase {
         let imageURL = URL(string: "https://raw.githubusercontent.com/e-sung/SDRemoteImageView/master/sampleImage.jpg")
         let givenFrame = CGRect(x: 0, y: 0, width: 200, height: 150)
         let resoution = UIScreen.main.scale
-        let sut = SDRemoteImageView(frame: givenFrame)
-        sut.loadImage(from: imageURL, completionHandler: { result in
+        let sut = UIImageView(frame: givenFrame)
+        sut.sd.loadImage(from: imageURL, completionHandler: { result in
             do {
                 let image = try result.get()
-                let bytesPerRow = image?.cgImage?.bytesPerRow ?? 0
-                let imageHeight = image?.cgImage?.height ?? 0
+                let bytesPerRow = image.cgImage?.bytesPerRow ?? 0
+                let imageHeight = image.cgImage?.height ?? 0
                 let imageSize = bytesPerRow * imageHeight
                 
                 
@@ -33,12 +33,12 @@ class Tests: XCTestCase {
         // size of contents of image is 1920 * 1440
         let imageURL = URL(string: "https://raw.githubusercontent.com/e-sung/SDRemoteImageView/master/sampleImage.jpg")
         let givenFrame = CGRect(x: 0, y: 0, width: 200, height: 150)
-        let sut = SDRemoteImageView(frame: givenFrame)
-        sut.loadImage(from: imageURL, shouldDownSample: false, completionHandler: { result in
+        let sut = UIImageView(frame: givenFrame)
+        sut.sd.loadImage(from: imageURL, shouldDownSample: false, completionHandler: { result in
             do {
                 let image = try result.get()
-                let bytesPerRow = image?.cgImage?.bytesPerRow ?? 0
-                let imageHeight = image?.cgImage?.height ?? 0
+                let bytesPerRow = image.cgImage?.bytesPerRow ?? 0
+                let imageHeight = image.cgImage?.height ?? 0
                 let imageSize = bytesPerRow * imageHeight
                 XCTAssert(imageSize == 1920 * 1440 * 4)
             }

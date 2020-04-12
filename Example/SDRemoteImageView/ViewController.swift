@@ -11,7 +11,7 @@ import SDRemoteImageView
 
 class ViewController: UIViewController {
 
-    @IBOutlet var remoteImageView: SDRemoteImageView!
+    @IBOutlet var remoteImageView: UIImageView!
     @IBOutlet var segmentControl: UISegmentedControl!
     @IBOutlet var labelMemorySize: UILabel!
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
@@ -25,17 +25,15 @@ class ViewController: UIViewController {
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         let shouldDownsample = sender.selectedSegmentIndex == 0
         loadingIndicator.startAnimating()
-        remoteImageView.loadImage(from: imageURL, shouldDownSample: shouldDownsample,
-                                  completionHandler: { [weak self] result in
-                                    self?.loadingIndicator.stopAnimating()
-                                    switch result {
-                                    case let .success(image):
-                                        guard let image = image else { return }
-                                        self?.labelMemorySize.text = "\(image.memorySize) bytes"
-                                    case .failure:
-                                        self?.labelMemorySize.text = "Error!!"
-                                    }
-        })
+        remoteImageView.sd.loadImage(from: imageURL, shouldCache: true, shouldDownSample: shouldDownsample) { [weak self] result in
+            self?.loadingIndicator.stopAnimating()
+            switch result {
+            case let .success(image):
+                self?.labelMemorySize.text = "\(image.memorySize) bytes"
+            case .failure:
+                self?.labelMemorySize.text = "Error!!"
+            }
+        }
     }
 }
 

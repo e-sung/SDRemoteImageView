@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="k7x-X9-aTZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y7w-Wc-GKj">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--DownSampleTest-->
         <scene sceneID="0E8-90-7zh">
             <objects>
                 <viewController id="k7x-X9-aTZ" customClass="ViewController" customModule="SDRemoteImageView_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,7 +29,7 @@
                                     <action selector="segmentChanged:" destination="k7x-X9-aTZ" eventType="valueChanged" id="PMc-cQ-VFs"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WdA-Zs-WGK" customClass="SDRemoteImageView" customModule="SDRemoteImageView">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WdA-Zs-WGK">
                                 <rect key="frame" x="87.5" y="258.5" width="200" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WdA-Zs-WGK" secondAttribute="height" multiplier="1920:1440" id="nUM-1T-oIN"/>
@@ -61,6 +61,7 @@
                             <constraint firstItem="8j9-nv-yEs" firstAttribute="centerX" secondItem="fBu-yX-NeU" secondAttribute="centerX" id="uYt-fW-nhR"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="DownSampleTest" image="magnifyingglass" catalog="system" id="c4q-oG-Js7"/>
                     <connections>
                         <outlet property="labelMemorySize" destination="A1N-2b-1rz" id="qw2-ry-Wdg"/>
                         <outlet property="loadingIndicator" destination="8j9-nv-yEs" id="7eT-j5-8rF"/>
@@ -70,7 +71,99 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYi-dq-QYf" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="132.68365817091455"/>
+            <point key="canvasLocation" x="-143" y="916"/>
+        </scene>
+        <!--ListTest-->
+        <scene sceneID="P9e-L8-M2D">
+            <objects>
+                <viewController id="TJT-gb-8rb" customClass="BeerListViewController" customModule="SDRemoteImageView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Knt-GL-Jb8"/>
+                        <viewControllerLayoutGuide type="bottom" id="B9n-se-eyW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nAW-YY-0xP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g0X-m9-JhT">
+                                <rect key="frame" x="16" y="0.0" width="343" height="618"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="123" id="gUH-tO-LfA" customClass="BeerCell" customModule="SDRemoteImageView_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="123"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gUH-tO-LfA" id="A6y-kZ-dRk">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="123"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KED-Yn-hoH">
+                                                    <rect key="frame" x="15" y="20" width="80" height="83"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="h8w-X8-IUv"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="83" id="qfx-6E-THE"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6C8-QU-XhS">
+                                                    <rect key="frame" x="103" y="51" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KED-Yn-hoH" firstAttribute="top" secondItem="A6y-kZ-dRk" secondAttribute="top" constant="20" id="3rI-02-hvK"/>
+                                                <constraint firstAttribute="bottom" secondItem="KED-Yn-hoH" secondAttribute="bottom" constant="20" id="HhS-Y4-1AM"/>
+                                                <constraint firstItem="6C8-QU-XhS" firstAttribute="leading" secondItem="KED-Yn-hoH" secondAttribute="trailing" constant="8" id="Ipb-Pj-n1d"/>
+                                                <constraint firstItem="KED-Yn-hoH" firstAttribute="leading" secondItem="A6y-kZ-dRk" secondAttribute="leading" constant="15" id="hcd-CM-pNp"/>
+                                                <constraint firstItem="6C8-QU-XhS" firstAttribute="centerY" secondItem="A6y-kZ-dRk" secondAttribute="centerY" id="zru-FJ-d4U"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="beerImageView" destination="KED-Yn-hoH" id="nMZ-Ga-7wb"/>
+                                            <outlet property="label" destination="6C8-QU-XhS" id="QBg-Ce-mKE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="g0X-m9-JhT" firstAttribute="top" secondItem="Knt-GL-Jb8" secondAttribute="bottom" id="F24-5J-Llw"/>
+                            <constraint firstItem="g0X-m9-JhT" firstAttribute="leading" secondItem="nAW-YY-0xP" secondAttribute="leadingMargin" id="NRN-CB-sNX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g0X-m9-JhT" secondAttribute="trailing" id="pIs-xz-wTJ"/>
+                            <constraint firstItem="B9n-se-eyW" firstAttribute="top" secondItem="g0X-m9-JhT" secondAttribute="bottom" id="qbW-uv-Yfi"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="ListTest" image="list.dash" catalog="system" id="dgt-WO-vbw"/>
+                    <connections>
+                        <outlet property="tableView" destination="g0X-m9-JhT" id="Lz1-dO-trF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vv3-MB-c2Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="593" y="915"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="z8G-iT-0Xt">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="y7w-Wc-GKj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="75Q-jE-kVy">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="k7x-X9-aTZ" kind="relationship" relationship="viewControllers" id="nuy-v8-Ure"/>
+                        <segue destination="TJT-gb-8rb" kind="relationship" relationship="viewControllers" id="N4V-sp-Q5a"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OfE-pN-2bu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56.799999999999997" y="131.78410794602701"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+    </resources>
 </document>

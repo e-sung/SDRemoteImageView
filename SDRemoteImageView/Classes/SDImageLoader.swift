@@ -33,7 +33,6 @@ public class SDRemoteImageLoader {
     
     */
     public func loadImage(from url: URL?, placeHolderImage: UIImage? = nil, errorImage: UIImage? = nil, imageSize:CGSize, shouldCache:Bool = true, shouldDownSample:Bool = true, completionHandler: @escaping ((Result<UIImage, Error>) -> Void)) {
-        downloadTask?.cancel()
         guard let url = url else {
             completionHandler(.failure(RemoteImageViewError.unknown))
             return

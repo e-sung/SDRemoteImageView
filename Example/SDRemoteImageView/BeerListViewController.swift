@@ -50,9 +50,7 @@ class BeerListDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BeerCell
         let beer = beers[indexPath.row]
-//        print("started loading at \(indexPath.row) : \(beer.name)")
         cell.beerImageView.sd.loadImage(from: beer.image_url)
-        cell.beerImageView.k
         cell.label.text = beer.name
         return cell
     }

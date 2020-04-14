@@ -29,7 +29,7 @@ public extension SDRemoteImageWrapper where Base: UIImageView {
         imageLoader.loadImage(from: url, placeHolderImage: placeHolderImage, errorImage: errorImage, imageSize: base.frame.size, shouldCache: shouldCache, shouldDownSample: shouldDownSample) { [weak base] result in
             switch result {
             case let .success(image):
-                base?.applyImage(image)
+                base?.applyImage(image, transitionTime: transitionTime)
             case let .failure(error):
                 print(error.localizedDescription)
             }
@@ -44,7 +44,7 @@ public extension SDRemoteImageWrapper where Base: UIImageView {
 fileprivate var imageProcessors:[Int:SDRemoteImageLoader] = [:]
 
 fileprivate extension UIImageView {
-    func applyImage(_ image: UIImage?, transitionTime:TimeInterval = 0.4, completionHandler: ((Result<UIImage?, Error>) -> Void)? = nil) {
+    func applyImage(_ image: UIImage?, transitionTime:TimeInterval = 0.0, completionHandler: ((Result<UIImage?, Error>) -> Void)? = nil) {
         DispatchQueue.main.async {[weak self] in
             guard let image = image else {
                 completionHandler?(.failure(RemoteImageViewError.unknown))

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		118B929724455C3300B4DE5A /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 118B929624455C3300B4DE5A /* Nuke */; };
 		118C0B1724436ED700D5F011 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 118C0B1624436ED700D5F011 /* Kingfisher */; };
 		119CD2EB2442CCF000A85F2D /* BeerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119CD2EA2442CCF000A85F2D /* BeerListViewController.swift */; };
 		1AED637356DDD2D4CBF8C846 /* Pods_SDRemoteImageView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356AB345E67A568BA6F0D8A9 /* Pods_SDRemoteImageView_Tests.framework */; };
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				118B929724455C3300B4DE5A /* Nuke in Frameworks */,
 				118C0B1724436ED700D5F011 /* Kingfisher in Frameworks */,
 				4DF51696584DA65489EC54C5 /* Pods_SDRemoteImageView_Example.framework in Frameworks */,
 			);
@@ -184,6 +186,7 @@
 			name = SDRemoteImageView_Example;
 			packageProductDependencies = (
 				118C0B1624436ED700D5F011 /* Kingfisher */,
+				118B929624455C3300B4DE5A /* Nuke */,
 			);
 			productName = SDRemoteImageView;
 			productReference = 607FACD01AFB9204008FA782 /* SDRemoteImageView_Example.app */;
@@ -241,6 +244,7 @@
 			mainGroup = 607FACC71AFB9204008FA782;
 			packageReferences = (
 				118C0B1524436ED700D5F011 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				118B929524455C3300B4DE5A /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
@@ -622,6 +626,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		118B929524455C3300B4DE5A /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.4.1;
+			};
+		};
 		118C0B1524436ED700D5F011 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -633,6 +645,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		118B929624455C3300B4DE5A /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 118B929524455C3300B4DE5A /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
 		118C0B1624436ED700D5F011 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 118C0B1524436ED700D5F011 /* XCRemoteSwiftPackageReference "Kingfisher" */;

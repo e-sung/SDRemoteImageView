@@ -9,6 +9,15 @@
           "revision": "349ed06467a6f8a4939bcb83db301542bc84eac9",
           "version": "5.13.4"
         }
+      },
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke.git",
+        "state": {
+          "branch": null,
+          "revision": "6001489d22e5f41a4956c1b6cd4cf7cbe8f44dff",
+          "version": "8.4.1"
+        }
       }
     ]
   },

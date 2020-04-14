@@ -20,7 +20,7 @@ public class SDRemoteImageLoader {
                                              diskCapacity: 1024*1024,
                                              diskPath: nil)
     private var decodingCachedImageWorkItem: DispatchWorkItem?
-    private var session = URLSession(configuration: .ephemeral)
+    private var session = URLSession.shared
     private var downloadTask: URLSessionDataTask?
     
     /**
@@ -115,9 +115,5 @@ public class SDRemoteImageLoader {
             return UIImage()
         }
         return UIImage(cgImage: downsampledImage)
-    }
-    
-    deinit {
-        session.invalidateAndCancel()
     }
 }

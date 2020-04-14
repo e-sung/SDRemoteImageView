@@ -59,6 +59,7 @@ public class SDRemoteImageLoader {
             Self.decodingQueue.async(execute: decodingCachedImageWorkItem!)
         }
         else {
+            downloadTask?.cancel()
             downloadTask = dataTaskToDownloadImage(for: url,
                                     placeHolderImage: placeHolderImage,
                                     errorImage: errorImage,

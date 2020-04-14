@@ -16,7 +16,7 @@ public class SDRemoteImageLoader {
     /// DispatchQueue where Decoding should happen.
     static let decodingQueue = DispatchQueue(label: "SDRemoteImageView Decoding Queue", qos: .userInteractive)
 
-    public static var imageCache = URLCache(memoryCapacity: Int(ProcessInfo.processInfo.physicalMemory / 100),
+    public static var imageCache = URLCache(memoryCapacity: 1024*1024*10,
                                              diskCapacity: 1024*1024,
                                              diskPath: nil)
     private var decodingCachedImageWorkItem: DispatchWorkItem?

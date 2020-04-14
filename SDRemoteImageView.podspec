@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SDRemoteImageView'
-  s.version          = '0.4.0'
+  s.version          = '1.0.0'
   s.summary          = 'Fetch image from Remote server, downsample it, and display it'
 
 # This description is used to generate tags and improve search results.
